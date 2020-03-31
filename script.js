@@ -2,6 +2,7 @@ const gameContainer = document.getElementById("game");
 var divElementArray = [];
 var count = 0;
 var i = 0;  //for array indexing
+var score = 1;
 
 const COLORS = [
   "red",
@@ -64,10 +65,11 @@ function handleCardClick(event) {
   // you can use event.target to see which element was clicked
   if(count < 9) {
     divElementArray.push(event.target.className);
-    console.log(divElementArray[i]);
     if(event.target.style.backgroundColor !== divElementArray[i]) {
       count++;
       event.target.style.backgroundColor = divElementArray[i++];
+      let scoreVal = document.getElementById('score');
+      scoreVal.innerText = score++;
     } else {
       divElementArray.pop();
     }
@@ -99,10 +101,19 @@ function handleCardClick(event) {
     } else {
       lastDiv[1].style.backgroundColor = event.target.className;
     }
+    count = 10;
     alert("Game Over ! you won the game");
   }
   
   
+}
+
+function checkGameCount() {
+  if(count > 9) {
+    document.location.href = 'index.html';
+  } else {
+    confirm('first finish the game');
+  }
 }
 
 // when the DOM loads
