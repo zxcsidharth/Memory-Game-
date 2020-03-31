@@ -1,4 +1,7 @@
 const gameContainer = document.getElementById("game");
+var divElementArray = [];
+var count = 0;
+var i = 0;  //for array indexing
 
 const COLORS = [
   "red",
@@ -57,10 +60,49 @@ function createDivsForColors(colorArray) {
   }
 }
 
-// TODO: Implement this function!
 function handleCardClick(event) {
   // you can use event.target to see which element was clicked
-  console.log("you just clicked", event.target);
+  if(count < 9) {
+    divElementArray.push(event.target.className);
+    console.log(divElementArray[i]);
+    if(event.target.style.backgroundColor !== divElementArray[i]) {
+      count++;
+      event.target.style.backgroundColor = divElementArray[i++];
+    } else {
+      divElementArray.pop();
+    }
+    if(divElementArray.length === 2 && divElementArray[0] === divElementArray[1]){
+      divElementArray.splice(0, 2);
+      i = 0;
+    } else if(divElementArray.length === 2 && divElementArray[0] !== divElementArray[1]) {
+      setTimeout(()=> {
+        let firstElement = document.getElementsByClassName(divElementArray[0])[0];
+        let secondElement = document.getElementsByClassName(divElementArray[1])[0];
+        firstElement.style.backgroundColor = 'white';
+        secondElement.style.backgroundColor = 'white';
+
+        firstElement = document.getElementsByClassName(divElementArray[0])[1];
+        secondElement = document.getElementsByClassName(divElementArray[1])[1];
+        firstElement.style.backgroundColor = 'white';
+        secondElement.style.backgroundColor = 'white';
+        divElementArray.splice(0, 2);
+        count = count - 2;
+        i = 0;
+        console.log(firstElement, secondElement);
+        }, 500)
+    }
+  } else {
+    let lastDiv = document.getElementsByClassName(event.target.className);
+    console.log(lastDiv);
+    if(lastDiv[0].style.backgroundColor !== event.target.className) {
+      lastDiv[0].style.backgroundColor = event.target.className;
+    } else {
+      lastDiv[1].style.backgroundColor = event.target.className;
+    }
+    alert("Game Over ! you won the game");
+  }
+  
+  
 }
 
 // when the DOM loads
