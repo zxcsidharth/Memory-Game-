@@ -6,7 +6,7 @@
   display: inline-block;
 }
 .btn {
-  padding: 15px 15px;
+  padding: 10px 10px;
   border-radius: 10px;
   background-color:green;
   color: white;
@@ -22,11 +22,12 @@
   color: white;
   text-align: center;
 }
-.score {
-  padding-top: 30px;
+#score {
+  padding: 5px;
 }
 
 .header-container{
+  width: 94%;
   display: grid;
   grid-template-rows: 100%;
   grid-template-columns:70% 15%;
@@ -37,4 +38,10 @@
   grid-template-rows: 80%;
   grid-template-columns: 18% 24%;
   grid-column-gap: 34%;
+}
+#cards {
+  width: 50%;
+  height: 30px;
+  border-radius: 5px;
+  border-color: rgb(34, 212, 228);
 }

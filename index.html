@@ -6,10 +6,13 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <input type="text" id="cards" placeholder="Enter the number of cards you want to play">
+    <input type="button" class="btn" id = "submit" onclick="checkNumbers()" value="START">
+    <p id="warning"></p>
     <h1>Memory Game!</h1>
     <div class="header-container">
       <div class="buttons">
-        <button class = 'btn start' onclick="location.href='index.html'">START</button>
+        <!-- <button class = 'btn' id = "start" onclick="location.href='index.html'">START</button> -->
         <button class = 'btn restart' onclick="checkGameCount()">RESTART</button>
       </div>
       <div class="score-div"><p id="score">0</p></div>
