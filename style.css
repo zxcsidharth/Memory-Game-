@@ -8,7 +8,7 @@
 .btn {
   padding: 10px 10px;
   border-radius: 10px;
-  background-color:green;
+  background-color: green;
   color: white;
   border: none;
   outline: none;
@@ -26,11 +26,11 @@
   padding: 5px;
 }
 
-.header-container{
+.header-container {
   width: 94%;
   display: grid;
   grid-template-rows: 100%;
-  grid-template-columns:70% 15%;
+  grid-template-columns: 70% 15%;
   grid-column-gap: 13%;
 }
 .buttons {
@@ -44,4 +44,7 @@
   height: 30px;
   border-radius: 5px;
   border-color: rgb(34, 212, 228);
+}
+#cards:focus {
+  outline: none;
 }
